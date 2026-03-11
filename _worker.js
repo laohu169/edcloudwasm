@@ -356,9 +356,14 @@ const getUrlParam = (offset, len) => {
     return textDecoder.decode(wasmMem.subarray(dataPtr + offset, dataPtr + offset + len));
 };
 const establishTcpConnection = async (parsedRequest, request) => {
-    const u = request.url, clean = u.slice(u.indexOf('/', 10) + 1);
-    let list = [];
-    if (clean.length < 6) {
+    let u = request.url, clean = u.slice(u.indexOf('/', 10) + 1), l = clean.length, list = [];
+    if (l > 3 && clean.charCodeAt(l - 4) === 47 && clean.charCodeAt(l - 3) === 84 && clean.charCodeAt(l - 2) === 117 && clean.charCodeAt(l - 1) === 110) {
+        clean = clean.slice(0, l - 4);
+    } else {
+        const c = clean.charCodeAt(l - 1);
+        if (c === 47 || c === 61) clean = clean.slice(0, l - 1);
+    }
+    if (l < 6) {
         list.push({type: 0}, {type: 3, param: coloToProxyMap.get(request.cf?.colo) ?? proxyIpAddrs.US}, {type: 3, param: finallyProxyHost});
     } else {
         const urlBytes = textEncoder.encode(clean);
