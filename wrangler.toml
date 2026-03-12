@@ -6,7 +6,7 @@ compatibility_date = "2026-03-02"
 # --- worker环境变量配置 ---
 [vars]
 # VLESS 的 UUID
-UUID = "1b0bf142-adb9-414d-aba0-301e89c0aae3"
+UUID = "1b0bf142-adb9-414d-aba0-301e89c0aae4"
 # Trojan 的密码
 PASSWORD = "laohu159"
 # S5和HTTP 入站验证用户名 
