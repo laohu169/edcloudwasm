@@ -1,4 +1,4 @@
-// 代码基本都抄的CM和天书大佬的项目，在此感谢各位大佬的无私奉献。
+// 代码基本都抄的CM和天书大佬的项目，在此感谢各位大佬的无私。
 import {connect} from 'cloudflare:sockets';
 const defaultUuid = ''; // 可在环境变量配置，变量名称为UUID，两个地方都不写为不验证uuid
 const defaultPassword = ''; // 可在环境变量配置，变量名称为PASSWORD，两个地方都不写为不验证密码
